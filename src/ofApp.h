@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "platform.h"
+#include "player.h"
 
 class ofApp : public ofBaseApp{
 
@@ -22,5 +23,5 @@ class ofApp : public ofBaseApp{
 		
     
     vector <platform> platforms;
-    
+    player  player;
 };

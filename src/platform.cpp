@@ -14,7 +14,7 @@ platform::platform(int y){
     platformWidth = ofRandom(40, 100);
     y += ofRandom(-100, 100);
     birthPlace = y;
-    pos.set(ofGetWidth()+platformWidth, ofClamp(y, 50, ofGetHeight()-50), 0);
+    pos.set(ofGetWidth()+platformWidth, ofClamp(y, 50, ofGetHeight()-100), 0);
     vel.set(-2, 0, 0);
 }
 
@@ -24,5 +24,6 @@ void platform::update(){
 }
 
 void platform::draw(){
+    ofSetColor(255);
     ofRect(pos.x, pos.y, platformWidth, 20);
 }

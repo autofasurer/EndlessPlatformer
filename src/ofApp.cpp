@@ -24,11 +24,13 @@ void ofApp::update(){
         (*it).update();
     }
     ofRemove(platforms, shouldRemove);
-
+    player.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    player.draw();
+    
     for(vector<platform>::iterator it = platforms.begin(); it != platforms.end(); it++){
         (*it).draw();
     }
@@ -38,12 +40,26 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    if (key == OF_KEY_LEFT){
+        player.vel.x = -2;
+    }
+    else if (key == OF_KEY_RIGHT){
+        player.vel.x = 2;
+    }
+    else if (key == OF_KEY_UP){
+        player.jumping = true;
+        player.falling = false;
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-
+    if (key == OF_KEY_LEFT){
+        player.vel.x = 0;
+    }
+    else if (key == OF_KEY_RIGHT){
+        player.vel.x = 0;
+    }
 }
 
 //--------------------------------------------------------------

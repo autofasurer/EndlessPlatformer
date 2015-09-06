@@ -6,6 +6,7 @@
 //
 //
 #include "ofMain.h"
+
 #pragma once
 #ifndef EndlessPlatformer_platform_h
 #define EndlessPlatformer_platform_h
