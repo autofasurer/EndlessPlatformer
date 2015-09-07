@@ -16,12 +16,14 @@ class player{
     //constructor
     player();
     //methods
-    void update();
+    void update(ofVec3f extVel);
     void draw();
     //variables
     bool jumping;
     bool standing;
     bool falling;
+    int moveX;
+    int score;
     ofPoint pos;
     ofVec3f vel;
     int width, height, jumpConstant;

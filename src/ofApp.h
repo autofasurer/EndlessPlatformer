@@ -23,5 +23,9 @@ class ofApp : public ofBaseApp{
 		
     
     vector <platform> platforms;
+    
     player  player;
+    int     currentPlatform, previousPlatform;
+
+
 };

@@ -1,4 +1,4 @@
-//
+ //
 //  player.cpp
 //  EndlessPlatformer
 //
@@ -8,45 +8,51 @@
 #include "player.h"
 
 player::player(){
-    falling = true;
     standing = false;
     jumping = false;
-    pos.set(ofGetWidth()/2, 0, 0);
+    moveX = 0;
+    pos.set((ofGetWidth()/4)*3, 0, 0);
     width = 10;
     height = 20;
-    gravity = 2;
-    speed = 1.2;
-    jumpConstant = -25;
+    gravity = 1.;
+    jumpConstant = -16;
     vel.set(0, gravity, 0);
+    score = 0;
 }
 
-void player::update(){
+void player::update(ofVec3f extVel){
     if (pos.y > ofGetHeight()-height){
         pos.y = ofGetHeight()-height;
         standing = true;
-    }
-    if (falling){
-        vel.y = gravity;
+        score = 0;
     }
 
-    if (standing){
-        vel.y = 0;
-    }
-    if (jumping){
-        if (standing){
-            vel.y = -25;
+        if(standing){ //if we are touching the floor
+            if(vel.y > 0){
+                vel.y *= -0.1;
+            }
+            if(jumping){ //and if the up arrow is pressed
+                vel.y = jumpConstant; //set the y speed to the jump constant
+            }
+        } else {
+            vel.y += gravity;
+        }
+        /*if (jumping){
+            vel.y = jumpConstant;
             standing = false;
         }
         if (vel.y <= 0){
             jumping = false;
-        }
-    }
-    vel.y += gravity;
-    pos += vel;
+        }*/
 
+    //else {
+    //vel.y = gravity * !standing;
+    //}
+    vel.x = moveX;
+    pos += vel + extVel;
 }
 
 void player::draw(){
     ofSetColor(200, 50, 0);
-    ofRect(pos.x, pos.y, width,height);
+    ofRect(pos.x, pos.y, width, height);
 }

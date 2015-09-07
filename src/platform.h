@@ -27,6 +27,7 @@ public:
     int platformWidth;
     int birthday;
     int birthPlace;
+    ofColor platformColor;
 private:
     
 };
