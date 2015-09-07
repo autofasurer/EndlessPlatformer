@@ -133,4 +133,8 @@ bin/EndlessPlatformerDebug.app/Contents/Frameworks/GLUT.framework/Versions/Curre
 
 bin/EndlessPlatformerDebug.app/Contents/Frameworks/GLUT.framework/Versions/Current/Headers/vvector.h
 
+EndlessPlatformer.xcodeproj/xcuserdata/headlock.xcuserdatad/xcdebugger
+
+bin/data
+
 *.ttf
