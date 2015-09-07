@@ -64,10 +64,10 @@ void ofApp::draw(){
 void ofApp::keyPressed(int key){
     if (key == OF_KEY_LEFT){
         player.moveX = -3;
-    }
+        }
     else if (key == OF_KEY_RIGHT){
         player.moveX = 3;
-    }
+        }
     else if (key == ' '){
         if(!player.jumping){
         player.jumping = true;

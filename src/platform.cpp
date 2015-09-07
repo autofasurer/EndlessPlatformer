@@ -16,7 +16,7 @@ platform::platform(int y){
     platformWidth = ofRandom(40, 100);
     y += ofRandom(-150, 150);
     birthPlace = y;
-    pos.set(ofGetWidth()+platformWidth, ofClamp(y, 50, ofGetHeight()-100), 0);
+    pos.set(ofGetWidth()+platformWidth, ofClamp(y, 100, ofGetHeight()-100), 0);
     vel.set(-2, 0, 0);
 }
 
