@@ -18,7 +18,7 @@ class player{
     //methods
     void update(ofVec3f extVel);
     void draw();
-    //variables
+        //variables
     bool jumping;
     bool standing;
     bool falling;
@@ -29,7 +29,10 @@ class player{
     int width, height, jumpConstant;
     float gravity;
     float speed;
-    private:
+    ofMesh scarf;
+    
+private:
+    void drawScarf();
 };
 
 #endif

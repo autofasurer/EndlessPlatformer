@@ -37,22 +37,47 @@ void player::update(ofVec3f extVel){
         } else {
             vel.y += gravity;
         }
-        /*if (jumping){
-            vel.y = jumpConstant;
-            standing = false;
-        }
-        if (vel.y <= 0){
-            jumping = false;
-        }*/
 
-    //else {
-    //vel.y = gravity * !standing;
-    //}
-    vel.x = moveX;
+    vel.x = moveX + -1;
     pos += vel + extVel;
+    //drawScarf();
 }
 
 void player::draw(){
-    ofSetColor(200, 50, 0);
+    ofSetColor(250, 230, 230);
     ofRect(pos.x, pos.y, width, height);
+    drawScarf();
+}
+
+void player::drawScarf(){
+    ofMesh scarf;
+    
+    scarf.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+    scarf.enableColors();
+    scarf.addColor(ofFloatColor(1.0, 0.0, 0.0));
+    ofVec3f one(pos.x+width, pos.y+5, 0.0);
+    scarf.addColor(ofFloatColor(1.0, 0.0, 0.0));
+    ofVec3f two(pos.x+width, pos.y+10, 0.0);
+    scarf.addColor(ofFloatColor(1.0, 0.0, 0.0));
+    ofVec3f three(pos.x, pos.y+5, 0.0);
+    scarf.addColor(ofFloatColor(1.0, 0.0, 0.0));
+    ofVec3f four(pos.x, pos.y+10, 0.0);
+    scarf.addColor(ofFloatColor(1.0, 0.0, 0.0));
+    ofVec3f five(pos.x-10, pos.y+(ofRandom(0,5)), 0.0);
+    scarf.addColor(ofFloatColor(1.0, 0.0, 0.0));
+    ofVec3f six(pos.x-10, pos.y+(ofRandom(0,5))+5, 0.0);
+    scarf.addColor(ofFloatColor(1.0, 0.0, 0.0));
+    ofVec3f seven(pos.x-20, pos.y+(ofRandom(0,5)), 0.0);
+    ofVec3f eight(pos.x-20, pos.y+(ofRandom(0,5))+5, 0.0);
+
+    scarf.addVertex(one);
+    scarf.addVertex(two);
+    scarf.addVertex(three);
+    scarf.addVertex(four);
+    scarf.addVertex(five);
+    scarf.addVertex(six);
+    scarf.addVertex(seven);
+    scarf.addVertex(eight);
+    
+    scarf.draw();
 }

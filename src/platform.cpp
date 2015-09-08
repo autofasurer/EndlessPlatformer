@@ -11,7 +11,7 @@
 //constructor
 platform::platform(int y){
 
-    platformColor.set(255, 255, 255);
+    platformColor.set(195, 220, 235);
     birthday = ofGetElapsedTimef();
     platformWidth = ofRandom(40, 100);
     y += ofRandom(-150, 150);
@@ -27,5 +27,5 @@ void platform::update(){
 
 void platform::draw(){
     ofSetColor(platformColor);
-    ofRect(pos.x, pos.y, platformWidth, 20);
+    ofRect(pos.x, pos.y, platformWidth, 10);
 }
